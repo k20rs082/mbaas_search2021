@@ -44,7 +44,9 @@
     function searchLevelLT() {
       let level = parseInt($("#level").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.lessThan("level", level).fetchAll()
+      TestDataClass.lessThan("level", level)
+      .order("level", false)
+      .fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -53,7 +55,9 @@
     function searchLevelGT() {
       let level = parseInt($("#level").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.greaterThan("level", level).fetchAll()
+      TestDataClass.greaterThan("level", level)
+      .order("level", false)
+      .fetchAll()
         .then(function(results) {
           showResults(results);
         })
