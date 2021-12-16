@@ -32,31 +32,31 @@
         })
     }
 
-    function searchLevel() {
-      let level = parseInt($("#level").val());
+    function searchAge() {
+      let age = parseInt($("#age").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("level", level).fetchAll()
+      TestDataClass.equalTo("age", age).fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchLevelLT() {
-      let level = parseInt($("#level").val());
+    function searchAgeLT() {
+      let age = parseInt($("#age").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.lessThan("level", level)
-      .order("level", false)
+      TestDataClass.lessThan("age", age)
+      .order("age", false)
       .fetchAll()
         .then(function(results) {
           showResults(results);
         })
     }
 
-    function searchLevelGT() {
-      let level = parseInt($("#level").val());
+    function searchAgeGT() {
+      let age = parseInt($("#age").val());
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.greaterThan("level", level)
-      .order("level", false)
+      TestDataClass.greaterThan("age", age)
+      .order("age", false)
       .fetchAll()
         .then(function(results) {
           showResults(results);
