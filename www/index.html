@@ -63,6 +63,15 @@
         })
     }
 
+    function searchPosition() {
+      let position = $("#position").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.equalTo("position", position).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>age</th><th>position</th></tr>";
@@ -92,6 +101,10 @@
     <label for="age">age:</label>
     <input id="age" type="number" placeholder="age">
   </div>
+  <div>
+    <label for="position">position:</label>
+    <input id="position" type="text" placeholder="position">
+  </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onClick="searchName()">Name</button>
@@ -99,6 +112,7 @@
     <button class="btn" onClick="searchAgeLT()">Age &lt</button>
     <button class="btn" onClick="searchAge()">Age</button>
     <button class="btn" onClick="searchAgeGT()">Age &gt</button>
+    <button class="btn" onClick="searchPosition()">Position</button>
   </div>
   <div id="message">message area</div>
 </body>
