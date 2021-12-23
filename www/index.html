@@ -83,6 +83,9 @@
       var key2 = "age";
       var value2 = parseInt($("#age").val());
       TestRecord.set(key2, value2);
+      var key3 = "position";
+      var value3 = $("#position").val();
+      TestRecord.set(key3, value3);
       // レコードをデータベースに登録
       TestRecord.save()
     }
