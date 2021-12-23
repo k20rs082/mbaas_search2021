@@ -45,8 +45,8 @@
       let age = parseInt($("#age").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass.lessThan("age", age)
-      .order("age", true)
-      .fetchAll()
+        .order("age", true)
+        .fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -56,8 +56,8 @@
       let age = parseInt($("#age").val());
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass.greaterThan("age", age)
-      .order("age", true)
-      .fetchAll()
+        .order("age", true)
+        .fetchAll()
         .then(function(results) {
           showResults(results);
         })
@@ -88,6 +88,15 @@
       TestRecord.set(key3, value3);
       // レコードをデータベースに登録
       TestRecord.save()
+    }
+
+    function deleteData() {
+      let name = $("#name").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.equalTo("name", name).fetch()
+        .then(function(results) {
+          return results.delete();
+        })
     }
 
     function showResults(results) {
@@ -132,6 +141,7 @@
     <button class="btn" onClick="searchAgeGT()">Age &gt</button>
     <button class="btn" onClick="searchPosition()">Position</button>
     <button class="btn" onClick="register()">Register</button>
+    <button class="btn" onClick="deleteData()">Delete</button>
   </div>
   <div id="message">message area</div>
 </body>
