@@ -72,6 +72,18 @@
         })
     }
 
+    function register() {
+      let TestDataClass = ncmb.DataStore(db);
+      // 登録するレコードを用意
+      var TestRecord = new TestDataClass();
+      // レコードのフィールドと値を設定
+      var key1 = "name";
+      var value1 = $("#name").val();
+      TestRecord.set(key1, value1);
+      // レコードをデータベースに登録
+      TestRecord.save()
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>age</th><th>position</th></tr>";
@@ -113,6 +125,7 @@
     <button class="btn" onClick="searchAge()">Age</button>
     <button class="btn" onClick="searchAgeGT()">Age &gt</button>
     <button class="btn" onClick="searchPosition()">Position</button>
+    <button class="btn" onClick="register()">Register</button>
   </div>
   <div id="message">message area</div>
 </body>
