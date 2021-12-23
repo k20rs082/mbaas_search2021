@@ -80,6 +80,9 @@
       var key1 = "name";
       var value1 = $("#name").val();
       TestRecord.set(key1, value1);
+      var key2 = "age";
+      var value2 = parseInt($("#age").val());
+      TestRecord.set(key2, value2);
       // レコードをデータベースに登録
       TestRecord.save()
     }
