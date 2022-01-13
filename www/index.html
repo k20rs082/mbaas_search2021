@@ -99,6 +99,21 @@
         })
     }
 
+    function IncrementAge() {
+      let name = $("#name").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.equalTo("name", name).fetch()
+        .then(function(results) {
+          var key = "age";
+          let age = 0;
+          age = results.get(key);
+          age += 1;
+          results.set(key, age);
+          results.save();
+          return results.update();
+        })
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>age</th><th>position</th></tr>";
